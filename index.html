@@ -3,9 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>online-business.in - Apna Readymade Business Shuru Karein</title>
+    
+    <title>online-business.in - Start Your Online Business</title>
+    
+    <meta property="og:title" content="online-business.in - Start Your Online Business">
+    <meta property="og:description" content="Sirf ek Smartphone aur chhoti si investment se. Hum aapko aapke Apne Naam aur Domain par puri website banakar denge.">
+    <meta property="og:type" content="website">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation Library CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
         @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap');
@@ -28,15 +39,9 @@
             100% { transform: translate(0px, 0px) scale(1); }
         }
         
-        .animate-float {
-            animation: float 8s infinite ease-in-out;
-        }
-        .animate-float-delayed {
-            animation: float 10s infinite ease-in-out 2s;
-        }
-        .animate-float-slow {
-            animation: float 12s infinite ease-in-out 4s;
-        }
+        .animate-float { animation: float 8s infinite ease-in-out; }
+        .animate-float-delayed { animation: float 10s infinite ease-in-out 2s; }
+        .animate-float-slow { animation: float 12s infinite ease-in-out 4s; }
 
         /* Premium Gradient Text */
         .text-gradient-primary {
@@ -53,9 +58,9 @@
 
         /* Glassmorphism Styles */
         .glass-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
             border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         }
 
@@ -67,489 +72,541 @@
             box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
         }
 
-        /* 3D Button Bounce */
-        .btn-3d {
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.5);
+        /* Hand-drawn SVG Path Animations */
+        .path-draw {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 3s ease forwards infinite alternate;
         }
-        .btn-3d:hover {
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 25px -5px rgba(37, 99, 235, 0.6);
+        .path-circle {
+            stroke-dasharray: 1000;
+            stroke-dashoffset: 1000;
+            animation: drawLine 4s ease forwards infinite;
         }
-        .btn-3d:active {
-            transform: translateY(1px);
+        @keyframes drawLine {
+            0% { stroke-dashoffset: 1000; }
+            50% { stroke-dashoffset: 0; }
+            100% { stroke-dashoffset: 0; }
         }
+
+        /* Rotating Text Transition */
+        .rotating-text-wrapper {
+            display: inline-block;
+            min-width: 250px;
+            text-align: left;
+        }
+        .fade-text {
+            transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .fade-out {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+        .fade-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Infinite Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            background: linear-gradient(90deg, #1e3a8a, #4c1d95, #9d174d);
+            padding: 12px 0;
+            position: relative;
+            z-index: 20;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 20s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Custom Scrollbar for Modal */
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+        
+        /* Floating Notification Pulse */
+        @keyframes ping-slow {
+            75%, 100% { transform: scale(1.5); opacity: 0; }
+        }
+        .animate-ping-slow { animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite; }
     </style>
 </head>
 <body class="text-gray-800 relative antialiased">
 
-    <!-- Glowing Background Orbs (3D Background Elements) -->
+    <!-- Glowing Background Orbs -->
     <div class="fixed top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <div class="absolute top-[-10%] left-[-10%] w-96 h-96 bg-purple-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-float"></div>
         <div class="absolute top-[20%] right-[-5%] w-96 h-96 bg-blue-300 rounded-full mix-blend-multiply filter blur-[100px] opacity-70 animate-float-delayed"></div>
         <div class="absolute bottom-[-10%] left-[20%] w-[30rem] h-[30rem] bg-pink-300 rounded-full mix-blend-multiply filter blur-[120px] opacity-60 animate-float-slow"></div>
     </div>
 
-    <!-- Navigation (Glassmorphism) -->
+    <!-- Navigation -->
     <nav class="glass-nav fixed w-full z-50 top-0 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="flex justify-between h-20 items-center">
-                <div class="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
+                <div class="flex-shrink-0 flex items-center gap-2 group cursor-pointer" onclick="window.scrollTo(0,0)">
                     <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center text-white text-xl shadow-lg transform group-hover:rotate-12 transition-transform duration-300">
-                        <i class="fas fa-briefcase"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
                     <span class="text-2xl font-black bg-clip-text text-transparent bg-gradient-to-r from-blue-700 to-purple-700 tracking-tight">online-business.in</span>
                 </div>
                 
-                <!-- Universal Menu Button (3 lines) for ALL devices -->
-                <div class="flex items-center">
+                <div class="flex items-center gap-4">
+                    <a href="#pricing" class="hidden md:inline-block bg-gradient-to-r from-pink-500 to-rose-500 text-white px-6 py-2 rounded-full font-bold shadow-lg hover:shadow-pink-500/30 transform hover:-translate-y-1 transition duration-300">
+                        Start Now <i class="fas fa-arrow-right ml-1"></i>
+                    </a>
                     <button id="menuBtn" class="text-gray-800 hover:text-blue-600 focus:outline-none transition-transform hover:scale-110">
                         <i class="fas fa-bars text-3xl"></i>
                     </button>
                 </div>
             </div>
             
-            <!-- Dropdown Menu (Hidden by default, opens on click) -->
+            <!-- Dropdown Menu -->
             <div id="dropdownMenu" class="hidden absolute top-20 left-0 w-full bg-white/95 backdrop-blur-xl shadow-2xl border-t border-gray-100 flex-col py-6 px-8 space-y-4 rounded-b-3xl transform transition-all origin-top">
                 <a href="#home" class="menu-link text-gray-800 hover:text-blue-600 font-bold text-xl border-b border-gray-100 pb-2">Home</a>
                 <a href="#audience" class="menu-link text-gray-800 hover:text-blue-600 font-bold text-xl border-b border-gray-100 pb-2">Kiske Liye Hai?</a>
                 <a href="#businesses" class="menu-link text-gray-800 hover:text-blue-600 font-bold text-xl border-b border-gray-100 pb-2">Business Ideas</a>
-                <a href="#pricing" class="menu-link text-gray-800 hover:text-blue-600 font-bold text-xl border-b border-gray-100 pb-2">Pricing</a>
-                <a href="#pricing" class="menu-link inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-bold text-center mt-4 text-lg shadow-lg w-max">Shuru Karein</a>
+                <a href="#pricing" class="menu-link text-gray-800 hover:text-blue-600 font-bold text-xl border-b border-gray-100 pb-2">Pricing & Setup</a>
+                <a href="#pricing" class="menu-link inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-3 rounded-full font-bold text-center mt-4 text-lg shadow-lg w-max">Apna Portal Book Karein</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="relative pt-28 pb-8 md:pt-40 md:pb-12 overflow-hidden">
+    <!-- Infinite Marquee (Social Proof) -->
+    <div class="mt-20 marquee-container text-white/90 text-sm font-semibold tracking-widest uppercase">
+        <div class="marquee-content">
+            <span class="mx-6"><i class="fas fa-star text-yellow-300"></i> Trusted by 10,000+ Indians</span>
+            <span class="mx-6"><i class="fas fa-bolt text-yellow-300"></i> 24-Hour Express Delivery</span>
+            <span class="mx-6"><i class="fas fa-shield-alt text-green-400"></i> 100% Secure Setup</span>
+            <span class="mx-6"><i class="fas fa-headset text-blue-300"></i> Life-Time Tech Support</span>
+            <!-- Repeat for seamless scroll -->
+            <span class="mx-6"><i class="fas fa-star text-yellow-300"></i> Trusted by 10,000+ Indians</span>
+            <span class="mx-6"><i class="fas fa-bolt text-yellow-300"></i> 24-Hour Express Delivery</span>
+            <span class="mx-6"><i class="fas fa-shield-alt text-green-400"></i> 100% Secure Setup</span>
+            <span class="mx-6"><i class="fas fa-headset text-blue-300"></i> Life-Time Tech Support</span>
+        </div>
+    </div>
+
+    <!-- Advanced Hero Section -->
+    <section id="home" class="relative pt-16 pb-12 md:pt-28 md:pb-20 overflow-hidden" data-aos="fade-up" data-aos-duration="1000">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             
-            <div class="flex flex-col items-center justify-center gap-3 mb-1">
-                <!-- 100% Readymade Badge (Chota wala) -->
-                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-white/50 text-purple-700 font-bold px-5 py-1.5 rounded-full shadow-sm transform hover:scale-105 transition-transform text-xs sm:text-sm whitespace-nowrap">
-                    <span class="relative flex h-2.5 w-2.5">
-                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"></span>
-                      <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-purple-500"></span>
+            <div class="flex flex-col items-center justify-center gap-3 mb-4">
+                <div class="inline-flex items-center gap-2 bg-white/80 backdrop-blur-md border border-white/50 text-indigo-700 font-bold px-5 py-2 rounded-full shadow-lg transform hover:scale-105 transition-transform text-xs sm:text-sm whitespace-nowrap">
+                    <span class="relative flex h-3 w-3">
+                      <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-indigo-400 opacity-75"></span>
+                      <span class="relative inline-flex rounded-full h-3 w-3 bg-indigo-600"></span>
                     </span>
-                    We Provide Complete Business Setup
+                    India's #1 Readymade Business Provider
                 </div>
                 
-                <!-- Handwriting Text (Bina kisi background ya frame ke) -->
-                <div class="flex items-center justify-center transform transition-all duration-300 hover:scale-105 whitespace-nowrap overflow-visible">
+                <div class="flex items-center justify-center transform transition-all duration-300 hover:scale-105 whitespace-nowrap overflow-visible mt-4">
                     <span class="text-pink-500 mr-2 sm:mr-3 text-[20px] sm:text-3xl animate-pulse drop-shadow-sm">✨</span> 
-                    <span class="font-handwriting text-[26px] sm:text-4xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-700 drop-shadow-md tracking-wide">Ghar Baithe Apna Khud Ka</span> 
+                    <span class="font-handwriting text-[30px] sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-800 to-pink-700 drop-shadow-md tracking-wide">Ghar Baithe Apna Khud Ka</span> 
                     <span class="text-blue-500 ml-2 sm:ml-3 text-[20px] sm:text-3xl animate-pulse drop-shadow-sm">✨</span>
                 </div>
             </div>
 
-            <h1 class="text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.1] mb-5 tracking-tight -mt-1">
-                <span class="text-gradient-primary drop-shadow-sm">Online Business</span> Shuru Karein!
+            <!-- Rotating Text & Hand Drawn Underline -->
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 leading-[1.2] md:leading-[1.1] mb-6 tracking-tight relative">
+                <span class="rotating-text-wrapper relative inline-block text-center min-w-[300px] md:min-w-[450px]">
+                    <span id="changingText" class="text-gradient-primary drop-shadow-sm fade-text fade-in inline-block">Online Business</span>
+                    <!-- Dynamic Scribble Underline -->
+                    <svg class="absolute w-full h-6 -bottom-1 md:-bottom-3 left-0 text-yellow-400 opacity-80" viewBox="0 0 200 20" preserveAspectRatio="none">
+                        <path d="M5,15 Q50,0 100,15 T195,10" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" class="path-draw" />
+                    </svg>
+                </span>
+                <br class="hidden md:block">
+                Shuru Karein!
             </h1>
             
-            <p class="mt-4 text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 leading-relaxed font-medium">
-                Sirf ek Smartphone aur chhoti si investment se. Hum aapko aapke <b class="text-gray-900 border-b-2 border-blue-400 pb-1">Apne Naam aur Domain</b> par puri website banakar denge.
+            <p class="mt-8 text-lg md:text-2xl text-gray-600 max-w-4xl mx-auto mb-10 leading-relaxed font-medium">
+                Sirf ek Smartphone aur chhoti si investment se. Hum aapko aapke 
+                <!-- Hand-drawn Circle around text -->
+                <span class="relative inline-block px-2 text-gray-900 font-extrabold whitespace-nowrap">
+                    Apne Naam aur Domain
+                    <svg class="absolute inset-0 w-full h-full text-pink-500/60 scale-[1.3] pointer-events-none" viewBox="0 0 100 40" preserveAspectRatio="none">
+                        <path d="M 10 20 C 10 -5, 90 -5, 90 20 C 90 45, 10 45, 10 20 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" class="path-circle" />
+                    </svg>
+                </span> 
+                par puri website banakar denge.
             </p>
             
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 mb-4 md:mb-8">
-                <div class="glass-card px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-3 text-gray-800">
-                    <div class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center text-xl shadow-inner"><i class="fas fa-wallet"></i></div>
-                    Kamayein: ₹20k - ₹30k/m
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mb-8">
+                <div class="glass-card px-8 py-5 rounded-2xl font-bold text-lg md:text-xl flex items-center gap-4 text-gray-800 transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-300 to-green-500 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fas fa-rupee-sign"></i></div>
+                    Kamayein: ₹20k - ₹1L/month
                 </div>
-                <div class="glass-card px-8 py-4 rounded-2xl font-bold text-lg flex items-center gap-3 text-gray-800">
-                    <div class="w-10 h-10 rounded-full bg-orange-100 text-orange-600 flex items-center justify-center text-xl shadow-inner"><i class="fas fa-tag"></i></div>
-                    Setup Cost: ₹2999
+                <div class="glass-card px-8 py-5 rounded-2xl font-bold text-lg md:text-xl flex items-center gap-4 text-gray-800 transform hover:-translate-y-1 transition duration-300">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-300 to-orange-500 text-white flex items-center justify-center text-2xl shadow-lg"><i class="fas fa-tag"></i></div>
+                    Setup Cost: Sirf ₹2999
                 </div>
             </div>
+            
+            <a href="#businesses" class="inline-block mt-4 animate-bounce bg-white/50 p-3 rounded-full text-blue-600 hover:text-pink-600 transition">
+                <i class="fas fa-arrow-down text-2xl"></i>
+            </a>
         </div>
     </section>
 
-    <!-- 20+ Business Ideas Grid (The Shandar 3D Core Section) -->
-    <section id="businesses" class="pt-8 pb-24 md:pt-12 relative">
+    <!-- 20+ Business Ideas Grid (Advanced) -->
+    <section id="businesses" class="pt-12 pb-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16 relative z-10">
-                <h2 class="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">Start Your <br class="hidden md:block"> <span class="text-gradient-primary">Online Business</span></h2>
-                <p class="mt-4 text-xl text-gray-600 font-medium">Koi bhi ek shandar model select karein aur aaj hi start karein!</p>
+            <div class="text-center mb-16 relative z-10" data-aos="fade-up">
+                <h2 class="text-4xl md:text-6xl font-black text-gray-900 tracking-tight">20+ Premium <br> <span class="text-gradient-primary">Business Models</span></h2>
+                <p class="mt-4 text-xl text-gray-600 font-medium max-w-2xl mx-auto">Koi bhi ek shandar model select karein, uski details dekhein aur aaj hi apna setup book karein!</p>
             </div>
 
-            <!-- 3D Grid container -->
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 
-                <!-- 1 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-laptop-code"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">1. Freelancing Portal</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Apni skills (data entry, typing) bechne ke liye super professional portfolio aur website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto Client Booking Form</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Direct Payment Integration</p>
+                <!-- Generating Cards Dynamically using HTML structure to apply AOS delays -->
+                <!-- Card 1 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-400 to-indigo-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(79,70,229,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-blue-700 transition">1. Freelancing Portal</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Apni skills bechne ke liye super professional portfolio website.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto Client Booking</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 1, 'Freelancing Portal')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 1, 'Freelancing Portal')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 1, 'Freelancing Portal')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 1, 'Freelancing Portal')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 2 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-bullhorn"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">2. Affiliate Marketing</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Amazon, Flipkart ke products promote karke auto-pilot commission kamane ki website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto-pilot Blog Setup</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Advanced SEO Optimization</p>
+                <!-- Card 2 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-green-400 to-emerald-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-green-500 to-emerald-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(16,185,129,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-bullhorn"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-green-700 transition">2. Affiliate Marketing</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Amazon, Flipkart products promote karke auto-pilot commission.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto-pilot Blog Setup</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 2, 'Affiliate Marketing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 2, 'Affiliate Marketing')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 2, 'Affiliate Marketing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 2, 'Affiliate Marketing')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 3 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-fuchsia-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-graduation-cap"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">3. Course Business</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Readymade courses bechne ke liye apna khud ka premium LMS (Learning) portal.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Dedicated Student Dashboard</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Secure Video Hosting</p>
+                <!-- Card 3 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-400 to-fuchsia-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-fuchsia-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(192,38,211,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-graduation-cap"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition">3. Course Business</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Readymade courses bechne ke liye khud ka premium LMS portal.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Secure Video Hosting</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 3, 'Course Business')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 3, 'Course Business')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 3, 'Course Business')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 3, 'Course Business')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 4 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-box-open"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">4. Digital Products</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Software, templates, themes aur readymade products auto-delivery ke sath bechein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Instant Auto-Delivery</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Pre-loaded Products</p>
+                <!-- Card 4 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-pink-400 to-rose-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-pink-500 to-rose-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(225,29,72,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-box-open"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-pink-700 transition">4. Digital Products</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Software, templates, readymade products auto-delivery ke sath bechein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Instant Auto-Delivery</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 4, 'Digital Products')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 4, 'Digital Products')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 4, 'Digital Products')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 4, 'Digital Products')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 5 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-handshake"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">5. Drop Servicing</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Clients se order lein aur freelancers se saste mein karwa ke apna bada margin rakhein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Service Pricing Packages</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Client Order Tracking</p>
+                <!-- Card 5 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(239,68,68,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-handshake"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-orange-700 transition">5. Drop Servicing</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Clients se order lein aur freelancers se saste mein karwayein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Client Order Tracking</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 5, 'Drop Servicing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 5, 'Drop Servicing')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 5, 'Drop Servicing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 5, 'Drop Servicing')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 6 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-share-alt"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">6. Social Media Agency</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Bade businesses ka Instagram/Facebook manage karne ke liye premium agency website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Appointment Booking</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Custom Portfolio Section</p>
+                <!-- Card 6 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-cyan-500 to-blue-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(6,182,212,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-share-alt"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition">6. Social Media Agency</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Businesses ka Instagram/Facebook manage karne ke liye premium agency.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Appointment Booking</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 6, 'Social Media Agency')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 6, 'Social Media Agency')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 6, 'Social Media Agency')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 6, 'Social Media Agency')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 7 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-rose-400 to-red-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-blog"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">7. Blogging & AdSense</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Apne pasandida topic par advanced blog banayein aur Google Ads se paise kamayein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> AdSense Approval Ready</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Premium Fast Theme</p>
+                <!-- Card 7 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-rose-400 to-red-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-rose-500 to-red-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(225,29,72,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-blog"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-rose-700 transition">7. Blogging & AdSense</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Apne pasandida topic par advanced blog banayein aur paise kamayein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> AdSense Ready Theme</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 7, 'Blogging & AdSense')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 7, 'Blogging & AdSense')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 7, 'Blogging & AdSense')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 7, 'Blogging & AdSense')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 8 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-tshirt"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">8. Print on Demand</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">T-shirts aur mugs par apne designs bechein. Printing aur shipping humari taraf se.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Supplier Integration</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Custom Product Mockups</p>
+                <!-- Card 8 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-teal-400 to-emerald-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(16,185,129,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-tshirt"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-teal-700 transition">8. Print on Demand</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">T-shirts aur mugs par apne designs bechein bina inventory ke.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Supplier Integration</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 8, 'Print on Demand')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 8, 'Print on Demand')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 8, 'Print on Demand')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 8, 'Print on Demand')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 9 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-store"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">9. Reselling Business</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Meesho ya Glowroad ke products apni premium brand website banakar mehnge mein bechein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> WhatsApp Order Button</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Dynamic Product Gallery</p>
+                <!-- Only generated first 8 explicitly to save space but keeping structure identical for all 20 -->
+                <!-- Note: To avoid huge file size, I will output all 20 matching the beautiful new aesthetic -->
+                
+                <!-- Card 9 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-amber-400 to-orange-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(245,158,11,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-store"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-orange-600 transition">9. Reselling Business</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Meesho/Glowroad ke products premium brand website par bechein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> WhatsApp Orders</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 9, 'Reselling Business')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 9, 'Reselling Business')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 9, 'Reselling Business')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 9, 'Reselling Business')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 10 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-video"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">10. Video Editing Agency</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">YouTubers aur Reels creators ko service provide karne ka high-paying readymade setup.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> HD Video Portfolio</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Client Testimonials</p>
+                <!-- Card 10 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-400 to-violet-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-500 to-violet-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(99,102,241,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-video"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-indigo-700 transition">10. Video Editing Agency</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">YouTubers aur brands ko editing services provide karein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> HD Video Portfolio</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 10, 'Video Editing Agency')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 10, 'Video Editing Agency')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 10, 'Video Editing Agency')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 10, 'Video Editing Agency')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 11 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-400 to-pink-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-palette"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">11. Canva Graphic Design</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Logos, banners, aur posters banakar clients ko bechne ki ekdum 3D portfolio website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Direct Order Link</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Custom Pricing Plans</p>
+                <!-- Card 11 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-400 to-pink-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-fuchsia-500 to-pink-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(217,70,239,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-palette"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-pink-600 transition">11. Canva Graphic Design</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Logos, banners, aur posters ke liye 3D portfolio website.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Custom Pricing Plans</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 11, 'Canva Graphic Design')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 11, 'Canva Graphic Design')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 11, 'Canva Graphic Design')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 11, 'Canva Graphic Design')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 12 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-slate-600 to-gray-800 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 to-gray-900 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-headset"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">12. Virtual Assistant</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Bade business owners ke liye online secretary banein, emails aur schedules handle karein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Calendly Integration</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Service Catalog Setup</p>
+                <!-- Card 12 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-slate-600 to-gray-800 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-slate-700 to-gray-900 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(51,65,85,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-headset"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-gray-700 transition">12. Virtual Assistant</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Business owners ke liye online secretary banein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Calendly Integration</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 12, 'Virtual Assistant')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 12, 'Virtual Assistant')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 12, 'Virtual Assistant')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 12, 'Virtual Assistant')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 13 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-shopping-cart"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">13. Dropshipping Store</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Bina inventory ke trending products bechein. Supplier direct customer ko samaan bhejega.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Pre-added Trending Products</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto-Order Forwarding</p>
+                <!-- Card 13 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(37,99,235,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-shopping-cart"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-cyan-700 transition">13. Dropshipping Store</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Bina inventory ke trending products bechein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto-Order Forwarding</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 13, 'Dropshipping Store')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 13, 'Dropshipping Store')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 13, 'Dropshipping Store')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 13, 'Dropshipping Store')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 14 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-rose-600 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-book"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">14. E-book Platform</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Readymade PLR (Private Label Rights) E-books khareed kar apni website par retail karein.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Instant Email Delivery</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 100+ PLR Books Pre-loaded</p>
+                <!-- Card 14 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-red-500 to-rose-600 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-red-600 to-rose-700 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(225,29,72,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-book"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-red-600 transition">14. E-book Platform</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Readymade PLR E-books apni website par retail karein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> 100+ Books Pre-loaded</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 14, 'E-book Platform')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 14, 'E-book Platform')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 14, 'E-book Platform')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 14, 'E-book Platform')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 15 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fab fa-instagram"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">15. Insta Theme Pages</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Niche theme pages banakar unhe monetize karne aur badi brand deals lene ka setup.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Professional Media Kit</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Brand Sponsorship Form</p>
+                <!-- Card 15 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-600 to-pink-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(192,38,211,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fab fa-instagram"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-purple-600 transition">15. Insta Theme Pages</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Theme pages banakar brand deals lene ka professional setup.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Sponsorship Form</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 15, 'Insta Theme Pages')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 15, 'Insta Theme Pages')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 15, 'Insta Theme Pages')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 15, 'Insta Theme Pages')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 16 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-800 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-800 to-indigo-900 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-chalkboard-teacher"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">16. Online Tutoring</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Bacchon ko padhane ke liye advance video calls, booking aur payment lene ki website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Zoom/Meet Integration</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Automatic Fee Collection</p>
+                <!-- Card 16 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-blue-700 to-indigo-800 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-800 to-indigo-900 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(30,58,138,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-blue-800 transition">16. Online Tutoring</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Advance video calls aur payment lene ki tutoring website.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Zoom Integration</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 16, 'Online Tutoring')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 16, 'Online Tutoring')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 16, 'Online Tutoring')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 16, 'Online Tutoring')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 17 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fab fa-whatsapp"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">17. WhatsApp Marketing</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Local dukaandaro ko bulk WhatsApp message aur automation service dene wali agency.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> CRM Integration</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Lead Capture Forms</p>
+                <!-- Card 17 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="absolute inset-0 bg-gradient-to-r from-emerald-400 to-green-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-500 to-green-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(16,185,129,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fab fa-whatsapp"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-green-600 transition">17. WhatsApp Marketing</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Dukaandaro ko bulk WhatsApp aur automation service dein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> CRM Integration</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 17, 'WhatsApp Marketing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 17, 'WhatsApp Marketing')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 17, 'WhatsApp Marketing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 17, 'WhatsApp Marketing')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 18 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-magnet"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">18. Lead Generation</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Insurance aur real estate agents ke liye online customers (leads) dhund kar dene ka business.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> High-converting Landing Page</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Autoresponder Email Setup</p>
+                <!-- Card 18 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 to-amber-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-500 to-amber-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(245,158,11,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-magnet"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-yellow-600 transition">18. Lead Generation</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Real estate agents ke liye customers (leads) dhund kar dein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Landing Page Setup</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 18, 'Lead Generation')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 18, 'Lead Generation')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 18, 'Lead Generation')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 18, 'Lead Generation')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 19 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-700 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-file-alt"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">19. Resume/CV Writing</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Naukri dhundhne walo ke liye ultra-modern ATS friendly Resume aur Cover letter website.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Premium ATS Templates</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Quick File Upload Form</p>
+                <!-- Card 19 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-indigo-600 to-blue-700 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(79,70,229,0.3)] transform -rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-file-alt"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-indigo-700 transition">19. Resume/CV Writing</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Naukri dhundhne walo ke liye ultra-modern ATS friendly Resume.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> File Upload Form</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 19, 'Resume/CV Writing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 19, 'Resume/CV Writing')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 19, 'Resume/CV Writing')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 19, 'Resume/CV Writing')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 20 -->
-                <div class="relative group h-full cursor-pointer flex flex-col">
-                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-60 transition duration-500"></div>
-                    <div class="relative flex flex-col h-full glass-card rounded-3xl p-6 border-white/60 transform transition duration-500 group-hover:-translate-y-2">
-                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-3xl mb-5 shadow-lg transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-robot"></i></div>
-                        <h3 class="font-extrabold text-xl mb-2 text-gray-900">20. AI Tools Directory</h3>
-                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Trending AI tools ko list aur promote karne wali premium website jahan se aap affiliate commission kamayenge.</p>
-                        <div class="space-y-2 border-t border-gray-200 pt-4 mt-auto">
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Pre-loaded Best AI Tools</p>
-                            <p class="text-xs text-gray-800 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Auto Affiliate Link Setup</p>
+                <!-- Card 20 -->
+                <div class="relative group h-full cursor-pointer flex flex-col" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-3xl blur-lg opacity-20 group-hover:opacity-100 transition duration-500"></div>
+                    <div class="relative flex flex-col h-full bg-white/80 backdrop-blur-xl rounded-3xl p-6 border border-white/60 shadow-xl transform transition duration-500 group-hover:-translate-y-3">
+                        <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-indigo-600 text-white flex items-center justify-center text-3xl mb-5 shadow-[0_10px_20px_rgba(147,51,234,0.3)] transform rotate-6 group-hover:rotate-0 transition duration-300"><i class="fas fa-robot"></i></div>
+                        <h3 class="font-extrabold text-xl mb-2 text-gray-900 group-hover:text-purple-700 transition">20. AI Tools Directory</h3>
+                        <p class="text-gray-600 text-sm font-medium mb-4 flex-grow">Trending AI tools ko list aur promote karke commission kamayein.</p>
+                        <div class="space-y-2 border-t border-gray-100 pt-4 mt-auto">
+                            <p class="text-xs text-gray-700 font-bold flex items-center gap-2"><i class="fas fa-check-circle text-green-500"></i> Pre-loaded Best AI</p>
                         </div>
-                        <!-- BUTTONS ADDED HERE -->
                         <div class="flex justify-between items-center pt-4 mt-4 border-t border-gray-100">
-                            <button onclick="openModal('details', 20, 'AI Tools Directory')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 transition uppercase tracking-wider flex items-center gap-1 group-hover:underline">See More <i class="fas fa-angle-double-right"></i></button>
-                            <button onclick="openModal('demo', 20, 'AI Tools Directory')" class="text-[12px] font-black text-pink-600 hover:text-white bg-pink-50 hover:bg-pink-500 px-4 py-1.5 rounded-full transition shadow-sm uppercase tracking-wide flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
+                            <button onclick="openModal('details', 20, 'AI Tools Directory')" class="text-[12px] font-black text-blue-600 hover:text-blue-800 uppercase tracking-wider flex items-center gap-1 group-hover:underline">Details <i class="fas fa-angle-right"></i></button>
+                            <button onclick="openModal('demo', 20, 'AI Tools Directory')" class="text-[12px] font-black text-white bg-gradient-to-r from-pink-500 to-rose-500 px-4 py-1.5 rounded-full shadow-md hover:shadow-lg transform hover:scale-105 transition flex items-center gap-1"><i class="fas fa-desktop"></i> Demo</button>
                         </div>
                     </div>
                 </div>
@@ -558,18 +615,56 @@
         </div>
     </section>
 
-    <!-- Target Audience Section (3D Colorful Cards) -->
-    <section id="audience" class="py-20 relative">
+    <!-- Why Choose Us / Benefits Section (NEW & ADVANCED) -->
+    <section class="py-20 bg-white relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Who Can Start This Business?</h2>
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Kyun Chunein <span class="text-gradient-primary">Humara Platform?</span></h2>
+                <div class="w-24 h-1.5 bg-gradient-to-r from-pink-500 to-rose-500 mx-auto mt-6 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative z-10">
+                <!-- Benefit 1 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[2rem] hover:bg-white hover:shadow-2xl hover:border-blue-100 transition-all duration-500 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="0">
+                    <div class="w-20 h-20 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Ready in 24 Hours</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Aapka complete business setup, premium domain aur fast hosting ke sath sirf 24 ghante mein live ho jayega.</p>
+                </div>
+                
+                <!-- Benefit 2 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[2rem] hover:bg-white hover:shadow-2xl hover:border-pink-100 transition-all duration-500 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-pink-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-fingerprint"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">100% Aapka Malikana</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Website, Domain aur usse aane wali poori kamai 100% aapki hogi. Hum koi hidden commission nahi lete.</p>
+                </div>
+                
+                <!-- Benefit 3 -->
+                <div class="bg-gray-50 border border-gray-100 p-8 rounded-[2rem] hover:bg-white hover:shadow-2xl hover:border-green-100 transition-all duration-500 transform hover:-translate-y-2 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6 group-hover:scale-110 group-hover:bg-green-600 group-hover:text-white transition-all duration-300">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Free Expert Guide</h3>
+                    <p class="text-gray-600 font-medium leading-relaxed">Business shuru karne ke baad sales kaise laani hai aur marketing kaise karni hai, iski poori guide hum denge.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Target Audience Section -->
+    <section id="audience" class="py-20 relative bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-in">
+                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Kiske Liye Hai Ye Platform?</h2>
                 <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Card 1 -->
-                <div class="glass-card rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border-t border-l border-white/60 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                <div class="bg-white rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border border-gray-100 relative overflow-hidden" data-aos="flip-left" data-aos-delay="0">
                     <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-[0_10px_20px_rgba(37,99,235,0.3)] transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
                         <i class="fas fa-user-graduate"></i>
                     </div>
@@ -577,8 +672,7 @@
                     <p class="text-gray-600 font-medium">Padhai ke sath part-time kaam karke fees aur pocket money khud nikalein.</p>
                 </div>
                 <!-- Card 2 -->
-                <div class="glass-card rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border-t border-l border-white/60 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                <div class="bg-white rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border border-gray-100 relative overflow-hidden" data-aos="flip-left" data-aos-delay="100">
                     <div class="w-20 h-20 bg-gradient-to-br from-pink-400 to-rose-600 text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-[0_10px_20px_rgba(225,29,72,0.3)] transform rotate-6 group-hover:rotate-0 transition-transform duration-300">
                         <i class="fas fa-female"></i>
                     </div>
@@ -586,8 +680,7 @@
                     <p class="text-gray-600 font-medium">Ghar sambhalte hue apne free time mein aasaani se financial independent banein.</p>
                 </div>
                 <!-- Card 3 -->
-                <div class="glass-card rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border-t border-l border-white/60 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-amber-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                <div class="bg-white rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border border-gray-100 relative overflow-hidden" data-aos="flip-left" data-aos-delay="200">
                     <div class="w-20 h-20 bg-gradient-to-br from-amber-400 to-orange-500 text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-[0_10px_20px_rgba(245,158,11,0.3)] transform -rotate-6 group-hover:rotate-0 transition-transform duration-300">
                         <i class="fas fa-book-reader"></i>
                     </div>
@@ -595,8 +688,7 @@
                     <p class="text-gray-600 font-medium">Taiyari ke doran ek solid backup source of income banayein tension free hokar.</p>
                 </div>
                 <!-- Card 4 -->
-                <div class="glass-card rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border-t border-l border-white/60 relative overflow-hidden">
-                    <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-400 rounded-full mix-blend-multiply filter blur-3xl opacity-30 group-hover:opacity-60 transition-opacity"></div>
+                <div class="bg-white rounded-3xl p-8 text-center group transform transition duration-500 hover:-translate-y-4 hover:shadow-2xl border border-gray-100 relative overflow-hidden" data-aos="flip-left" data-aos-delay="300">
                     <div class="w-20 h-20 bg-gradient-to-br from-emerald-400 to-green-600 text-white rounded-2xl flex items-center justify-center text-3xl mx-auto mb-6 shadow-[0_10px_20px_rgba(16,185,129,0.3)] transform rotate-6 group-hover:rotate-0 transition-transform duration-300">
                         <i class="fas fa-user-tie"></i>
                     </div>
@@ -607,158 +699,58 @@
         </div>
     </section>
 
-    <!-- Value Proposition / Readymade Setup Info (Dark Premium Section) -->
-    <section class="py-24 relative overflow-hidden bg-gradient-to-r from-blue-600 via-pink-500 to-blue-600 rounded-[3rem] mx-4 sm:mx-8 lg:mx-12 my-12 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.5)]">
-        <!-- Abstract Dark Background Elements -->
-        <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
-        <div class="absolute top-[-20%] right-[-10%] w-[40rem] h-[40rem] bg-indigo-600 rounded-full mix-blend-screen filter blur-[150px] opacity-40"></div>
-        <div class="absolute bottom-[-20%] left-[-10%] w-[30rem] h-[30rem] bg-white rounded-full mix-blend-overlay filter blur-[150px] opacity-30"></div>
-        
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-            <h2 class="text-4xl md:text-5xl font-extrabold mb-8 text-transparent bg-clip-text bg-gradient-to-r from-yellow-200 to-yellow-400 drop-shadow-md">We Provide Complete Business Setup</h2>
-            <p class="text-xl md:text-2xl max-w-4xl mx-auto mb-16 text-white/90 leading-relaxed font-medium">
-                Hum aapko aapka manpasand business aapke hi naam aur domain par mukammal setup karke denge. Aapko sirf manage karna aur kamana hai!
-            </p>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-center">
-                <!-- Card 1 -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 shadow-xl">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-blue-300 to-cyan-300 rounded-full flex items-center justify-center text-4xl text-blue-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fas fa-globe"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Aapka Khud Ka Domain</h4>
-                    <p class="text-white/90 font-medium">Website poori tarah aapke control aur aapke brand name (.in/.com) par hogi.</p>
-                </div>
-                <!-- Card 2 -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 transform md:-translate-y-6 shadow-xl">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-green-300 to-emerald-300 rounded-full flex items-center justify-center text-4xl text-green-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fas fa-mobile-alt"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Smartphone Friendly</h4>
-                    <p class="text-white/90 font-medium">Laptop nahi hai? Koi baat nahi, apne phone se hi pura business aasaani se manage karein.</p>
-                </div>
-                <!-- Card 3 -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 shadow-xl">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-yellow-300 to-orange-300 rounded-full flex items-center justify-center text-4xl text-orange-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Life-Time Support</h4>
-                    <p class="text-white/90 font-medium">Shuru karne ke baad bhi humari expert team aapko guide karne ke liye hamesha taiyar hai.</p>
-                </div>
-                
-                <!-- Card 4 (New) -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 shadow-xl md:mt-4">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-purple-300 to-indigo-300 rounded-full flex items-center justify-center text-4xl text-purple-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Aapka Khud Ka Business Portal</h4>
-                    <p class="text-white/90 font-medium">Ek advance centralized admin panel jahan se aap apna pura business easily control kar payenge.</p>
-                </div>
-                
-                <!-- Card 5 (New) -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 transform md:-translate-y-2 shadow-xl">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-pink-300 to-rose-300 rounded-full flex items-center justify-center text-4xl text-pink-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Aapki Khud Ki Business Website</h4>
-                    <p class="text-white/90 font-medium">Premium, fast-loading aur SEO friendly website jo aapke customers ko ek top professional look degi.</p>
-                </div>
-                
-                <!-- Card 6 (New) -->
-                <div class="bg-white/20 backdrop-blur-lg border border-white/30 p-8 rounded-3xl hover:-translate-y-3 transition-transform duration-300 shadow-xl md:mt-4">
-                    <div class="w-20 h-20 mx-auto bg-gradient-to-br from-teal-300 to-cyan-300 rounded-full flex items-center justify-center text-5xl text-teal-900 mb-6 shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        <i class="fab fa-android"></i>
-                    </div>
-                    <h4 class="font-bold text-2xl mb-3 text-white drop-shadow-sm">Aapka Khud Ka Business App</h4>
-                    <p class="text-white/90 font-medium">Aapke business ka apna Android App taaki aapke customers seedha apne phone se aapse jud sakein.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Pricing Section (Ultimate 3D Card Look) -->
-    <section id="pricing" class="py-24 relative">
+    <section id="pricing" class="py-24 relative overflow-hidden">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="relative group">
+            <div class="relative group" data-aos="zoom-in-up" data-aos-duration="1000">
                 <!-- Glowing shadow behind pricing card -->
-                <div class="absolute inset-0 bg-gradient-to-r from-blue-300 via-pink-400 to-blue-300 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-80 transition duration-500"></div>
+                <div class="absolute inset-0 bg-gradient-to-r from-blue-500 via-pink-500 to-purple-500 rounded-[3rem] blur-2xl opacity-60 group-hover:opacity-80 transition duration-500 animate-pulse"></div>
                 
                 <!-- Main Pricing Card -->
-                <div class="relative bg-gradient-to-r from-blue-400 via-pink-400 to-blue-400 rounded-[3rem] shadow-2xl overflow-hidden text-center text-white border border-white/40">
+                <div class="relative bg-gradient-to-br from-gray-900 via-indigo-900 to-gray-900 rounded-[3rem] shadow-2xl overflow-hidden text-center text-white border border-white/20">
+                    <!-- Abstract Carbon Fiber overlay -->
+                    <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
+                    
                     <!-- Shiny reflection effect -->
-                    <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-[45deg] animate-[shine_8s_infinite]"></div>
+                    <div class="absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[45deg] animate-[shine_8s_infinite]"></div>
 
-                    <div class="p-12 md:p-20 relative z-10">
-                        <div class="inline-block bg-white/20 backdrop-blur border border-white/40 text-yellow-100 font-bold px-6 py-2 rounded-full mb-6 uppercase tracking-widest text-sm shadow-sm">
-                            Limited Time Offer
+                    <div class="p-10 md:p-20 relative z-10">
+                        <div class="inline-block bg-white/10 backdrop-blur border border-white/20 text-yellow-300 font-bold px-8 py-2.5 rounded-full mb-8 uppercase tracking-widest text-sm shadow-sm">
+                            <i class="fas fa-fire mr-2 animate-pulse text-red-400"></i> Mega Discount Offer
                         </div>
-                        <h2 class="text-4xl md:text-6xl font-black mb-6 text-white drop-shadow-md">Complete Business Setup</h2>
-                        <p class="text-xl md:text-2xl text-white/90 mb-10 font-medium max-w-2xl mx-auto drop-shadow-sm">Upar di gayi Business list mein se <span class="text-white font-bold border-b-2 border-yellow-300">koi bhi 1 choose karein</span>, hum denge:</p>
                         
-                        <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-16 mb-12 text-lg text-left inline-block bg-white/20 backdrop-blur-xl p-8 rounded-3xl border border-white/30 w-full max-w-3xl mx-auto shadow-lg">
-                            <ul class="space-y-4 font-semibold text-white drop-shadow-sm">
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> Premium Domain Name</li>
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> 3D Website Design</li>
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> Payment Gateway (UPI)</li>
+                        <h2 class="text-4xl md:text-6xl font-black mb-6 text-white drop-shadow-md">Apna Platform Book Karein</h2>
+                        <p class="text-xl md:text-2xl text-gray-300 mb-10 font-medium max-w-2xl mx-auto drop-shadow-sm">List mein se <span class="text-white font-bold relative">koi bhi 1 Business<svg class="absolute w-full h-3 -bottom-1 left-0 text-pink-500" viewBox="0 0 100 20" preserveAspectRatio="none"><path d="M0 15 Q 50 0, 100 15" fill="none" stroke="currentColor" stroke-width="4" class="path-draw" /></svg></span> choose karein, hum denge:</p>
+                        
+                        <div class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-16 mb-12 text-lg text-left inline-block bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 w-full max-w-3xl mx-auto shadow-lg hover:bg-white/10 transition duration-300">
+                            <ul class="space-y-5 font-medium text-gray-200">
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> Premium Domain Name (.in/.com)</li>
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> 3D Website & Mobile App Setup</li>
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> Secure Payment Gateway (UPI)</li>
                             </ul>
-                            <ul class="space-y-4 font-semibold text-white drop-shadow-sm">
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> Easy Admin Panel</li>
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> 100% Mobile Responsive</li>
-                                <li class="flex items-center gap-3"><div class="w-8 h-8 rounded-full bg-white/30 text-white flex items-center justify-center shadow-inner"><i class="fas fa-check"></i></div> Life-Time Guidance</li>
+                            <ul class="space-y-5 font-medium text-gray-200 mt-5 md:mt-0">
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> Easy Admin Control Panel</li>
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> 100% Mobile Responsive</li>
+                                <li class="flex items-center gap-4"><div class="w-10 h-10 rounded-full bg-green-500/20 text-green-400 flex items-center justify-center shadow-inner text-xl"><i class="fas fa-check"></i></div> Life-Time Technical Support</li>
                             </ul>
                         </div>
 
-                        <div class="mb-10">
-                            <p class="text-white/70 line-through text-2xl font-medium mb-2">Market Price: ₹15,000</p>
-                            <div class="text-7xl font-black text-yellow-300 my-2 drop-shadow-lg">
-                                ₹2999 <span class="text-2xl font-medium text-white/80">/ Only</span>
+                        <div class="mb-10 relative">
+                            <p class="text-gray-400 line-through text-2xl font-medium mb-1">Market Price: ₹15,000</p>
+                            <div class="text-7xl md:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-b from-yellow-200 to-yellow-500 my-2 drop-shadow-2xl">
+                                ₹2999 <span class="text-2xl font-medium text-gray-300">/ Only</span>
                             </div>
-                            <p class="text-white text-lg mt-4 font-bold drop-shadow-sm">Ek baar ki choti si investment, life-time ki earning!</p>
+                            <p class="text-pink-300 text-lg md:text-xl mt-4 font-bold drop-shadow-sm font-handwriting tracking-wider">Ek baar ki choti si investment, life-time ki earning!</p>
                         </div>
 
-                        <button class="bg-white text-pink-600 font-black text-2xl py-5 px-12 rounded-full hover:bg-yellow-300 hover:text-gray-900 transition-all duration-300 shadow-[0_10px_30px_rgba(255,255,255,0.3)] transform hover:scale-105 border border-white/50">
-                            Apna Business Aaj Hi Book Karein <i class="fas fa-rocket ml-2"></i>
+                        <button class="bg-gradient-to-r from-yellow-400 to-yellow-500 text-gray-900 font-black text-xl md:text-2xl py-5 px-10 md:px-14 rounded-full hover:scale-105 transition-all duration-300 shadow-[0_10px_40px_rgba(234,179,8,0.4)] border-2 border-yellow-300 relative overflow-hidden group">
+                            <span class="relative z-10">Apna Business Aaj Hi Book Karein <i class="fas fa-rocket ml-2 group-hover:-translate-y-1 group-hover:translate-x-1 transition-transform"></i></span>
+                            <div class="absolute inset-0 bg-white/30 transform -skew-x-12 -translate-x-full group-hover:animate-[shine_1.5s_ease-in-out]"></div>
                         </button>
-                        <p class="mt-6 text-sm text-white/80 font-bold flex items-center justify-center gap-2 drop-shadow-sm">
-                            <i class="fas fa-shield-alt text-yellow-300"></i> 100% Safe, Secure & Transparent Process
+                        <p class="mt-6 text-sm text-gray-400 font-medium flex items-center justify-center gap-2">
+                            <i class="fas fa-lock text-green-400"></i> 100% Safe, Secure & Transparent Process
                         </p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- How it Works (Modern Timeline) -->
-    <section class="py-24 relative z-10 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-extrabold text-gray-900 tracking-tight">Kaam Kaise Shuru Hoga?</h2>
-                <div class="w-24 h-1.5 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
-            </div>
-            
-            <div class="flex flex-col md:flex-row justify-center items-center gap-8 md:gap-0 relative">
-                <!-- Glowing connecting line for desktop -->
-                <div class="hidden md:block absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-2/3 h-1 bg-gradient-to-r from-blue-300 via-purple-300 to-green-300 z-0"></div>
-                
-                <!-- Step 1 -->
-                <div class="relative z-10 text-center flex-1 px-4 group">
-                    <div class="w-24 h-24 bg-white border-4 border-blue-500 rounded-3xl flex items-center justify-center text-4xl font-black text-blue-600 mx-auto mb-6 shadow-xl transform rotate-3 group-hover:rotate-0 transition duration-300">1</div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Business Chunein</h3>
-                    <p class="text-gray-600 font-medium">20+ Premium list mein se apna manpasand model select karein.</p>
-                </div>
-                
-                <!-- Step 2 -->
-                <div class="relative z-10 text-center flex-1 px-4 group mt-8 md:mt-0">
-                    <div class="w-24 h-24 bg-white border-4 border-purple-500 rounded-3xl flex items-center justify-center text-4xl font-black text-purple-600 mx-auto mb-6 shadow-xl transform -rotate-3 group-hover:rotate-0 transition duration-300">2</div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Book Karein</h3>
-                    <p class="text-gray-600 font-medium">₹2999 pay karein aur apna pasandida Domain Name humein dein.</p>
-                </div>
-                
-                <!-- Step 3 -->
-                <div class="relative z-10 text-center flex-1 px-4 group mt-8 md:mt-0">
-                    <div class="w-24 h-24 bg-white border-4 border-green-500 rounded-3xl flex items-center justify-center text-4xl font-black text-green-500 mx-auto mb-6 shadow-xl transform rotate-3 group-hover:rotate-0 transition duration-300">3</div>
-                    <h3 class="text-2xl font-bold mb-3 text-gray-900">Kamai Shuru!</h3>
-                    <p class="text-gray-600 font-medium">Website live hone ke baad promote karein aur paisa kamana shuru karein.</p>
                 </div>
             </div>
         </div>
@@ -797,11 +789,11 @@
             <div class="md:col-span-4">
                 <h4 class="text-xl font-bold text-white mb-6 border-b border-gray-700 pb-2 inline-block">Contact Us</h4>
                 <ul class="space-y-4 font-medium text-gray-400">
-                    <li class="flex items-start justify-center md:justify-start gap-3">
+                    <li class="flex items-start justify-center md:justify-start gap-3 hover:text-white transition cursor-pointer">
                         <i class="fas fa-envelope mt-1 text-blue-400 text-lg"></i> 
                         <span>support@online-business.in</span>
                     </li>
-                    <li class="flex items-start justify-center md:justify-start gap-3">
+                    <li class="flex items-start justify-center md:justify-start gap-3 hover:text-white transition cursor-pointer">
                         <i class="fab fa-whatsapp mt-1 text-green-400 text-lg"></i> 
                         <span>+91 98765 43210 <br><span class="text-sm text-gray-500">(Chat Only)</span></span>
                     </li>
@@ -818,37 +810,105 @@
         </div>
     </footer>
 
-    <!-- Modal System (Hidden by Default) -->
-    <div id="unifiedModal" class="fixed inset-0 z-[100] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4 transition-opacity duration-300">
+    <!-- Live Notification Popup (Bottom Left) -->
+    <div id="livePopup" class="fixed bottom-[-100px] left-4 md:left-8 z-[100] bg-white border border-gray-200 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.1)] p-4 flex items-center gap-4 transition-all duration-500 opacity-0 pointer-events-none max-w-sm">
+        <div class="relative">
+            <div class="w-12 h-12 rounded-full bg-gradient-to-r from-green-400 to-emerald-500 flex items-center justify-center text-white text-xl shadow-md">
+                <i class="fas fa-check"></i>
+            </div>
+            <div class="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white rounded-full animate-ping-slow"></div>
+        </div>
+        <div>
+            <p class="text-xs text-gray-500 font-bold mb-1">Just Now <i class="fas fa-circle text-[8px] text-green-500 ml-1"></i></p>
+            <p id="popupText" class="text-sm font-bold text-gray-800 leading-tight">Ramesh from Pune just booked a <span class="text-blue-600">Dropshipping Store</span> setup!</p>
+        </div>
+    </div>
+
+    <!-- Modal System -->
+    <div id="unifiedModal" class="fixed inset-0 z-[200] hidden items-center justify-center bg-black/70 backdrop-blur-sm p-4 transition-opacity duration-300">
         <div class="bg-white rounded-[2rem] w-full max-w-2xl overflow-hidden shadow-2xl transform transition-all scale-95 opacity-0 border border-white/20" id="modalContentBox">
-            <!-- Header -->
             <div class="bg-gradient-to-r from-blue-900 via-blue-800 to-indigo-900 p-6 flex justify-between items-center text-white relative overflow-hidden">
                 <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10"></div>
                 <h3 id="modalTitle" class="text-2xl font-black relative z-10 tracking-wide">Title</h3>
                 <button onclick="closeModal()" class="relative z-10 text-white hover:text-pink-400 text-3xl transition transform hover:rotate-90">&times;</button>
             </div>
-            <!-- Body -->
-            <div id="modalBody" class="p-6 md:p-8 max-h-[75vh] overflow-y-auto bg-gray-50">
-                <!-- Dynamic Content Injected Here -->
-            </div>
+            <div id="modalBody" class="p-6 md:p-8 max-h-[75vh] overflow-y-auto bg-gray-50"></div>
         </div>
     </div>
 
-    <!-- Add Javascript for Navbar Background on scroll and Mobile Menu -->
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
+        // Init AOS Animation Library
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // Dynamic Rotating Text Logic
+        const words = ["Online Business", "Digital Agency", "Startup Store", "Consulting Firm", "Passive Income"];
+        let wordIndex = 0;
+        const changingText = document.getElementById('changingText');
+
+        setInterval(() => {
+            changingText.classList.remove('fade-in');
+            changingText.classList.add('fade-out');
+            
+            setTimeout(() => {
+                wordIndex = (wordIndex + 1) % words.length;
+                changingText.innerText = words[wordIndex];
+                changingText.classList.remove('fade-out');
+                changingText.classList.add('fade-in');
+            }, 500); // Wait for fade out
+        }, 3000); // Change every 3 seconds
+
+        // Live Notification Popup Logic
+        const names = ["Ramesh", "Priya", "Amit", "Neha", "Rahul", "Sonia", "Vikram"];
+        const cities = ["Pune", "Mumbai", "Delhi", "Bangalore", "Jaipur", "Ahmedabad", "Lucknow"];
+        const businesses = ["Dropshipping Store", "Affiliate Blog", "Social Media Agency", "Digital Product Store", "Course Portal"];
+        
+        const popup = document.getElementById('livePopup');
+        const popupText = document.getElementById('popupText');
+
+        function showPopup() {
+            // Generate random data
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomCity = cities[Math.floor(Math.random() * cities.length)];
+            const randomBusiness = businesses[Math.floor(Math.random() * businesses.length)];
+            
+            popupText.innerHTML = `${randomName} from ${randomCity} just booked a <span class="text-blue-600">${randomBusiness}</span> setup!`;
+            
+            // Show popup
+            popup.style.bottom = "20px";
+            popup.style.opacity = "1";
+            
+            // Hide after 4 seconds
+            setTimeout(() => {
+                popup.style.bottom = "-100px";
+                popup.style.opacity = "0";
+            }, 4000);
+        }
+
+        // Trigger popup randomly every 15-25 seconds
+        setTimeout(() => {
+            showPopup();
+            setInterval(showPopup, Math.floor(Math.random() * 10000) + 15000);
+        }, 5000); // First popup after 5 seconds
+
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('nav');
             if (window.scrollY > 20) {
                 nav.classList.add('shadow-lg');
-                nav.classList.replace('bg-white/80', 'bg-white/95');
+                nav.classList.replace('bg-white/70', 'bg-white/95');
             } else {
                 nav.classList.remove('shadow-lg');
-                nav.classList.replace('bg-white/95', 'bg-white/80');
+                nav.classList.replace('bg-white/95', 'bg-white/70');
             }
         });
 
-        // Universal Menu Toggle Logic
+        // Mobile Menu Logic
         const menuBtn = document.getElementById('menuBtn');
         const dropdownMenu = document.getElementById('dropdownMenu');
         const menuIcon = menuBtn.querySelector('i');
@@ -858,15 +918,14 @@
             if (dropdownMenu.classList.contains('hidden')) {
                 dropdownMenu.classList.remove('hidden');
                 dropdownMenu.classList.add('flex');
-                menuIcon.classList.replace('fa-bars', 'fa-times'); // Icon change to 'X'
+                menuIcon.classList.replace('fa-bars', 'fa-times');
             } else {
                 dropdownMenu.classList.add('hidden');
                 dropdownMenu.classList.remove('flex');
-                menuIcon.classList.replace('fa-times', 'fa-bars'); // Icon change back to 3 lines
+                menuIcon.classList.replace('fa-times', 'fa-bars');
             }
         });
 
-        // Close menu when a link is clicked
         menuLinks.forEach(link => {
             link.addEventListener('click', () => {
                 dropdownMenu.classList.add('hidden');
@@ -875,54 +934,56 @@
             });
         });
 
-        // --- UPDATED MODAL LOGIC WITH REAL DATA & DETAILED SERVICES ---
-        
-        // 1. Details Data
+        // Fallback function for generating links if the specific list isn't found
+        function getFallbackLinks(keyword) {
+            return [`example.com/${keyword.replace(/\s+/g, '-').toLowerCase()}-demo1`, `example.com/${keyword.replace(/\s+/g, '-').toLowerCase()}-demo2`];
+        }
+
+        // Details Data
         const businessData = {
-            1: { d: "Bohot High (Har badi company aur startup ko remote workers aur freelancers chahiye).", e: "₹20,000 - ₹50,000+ / mahina", w: "Aapki website par log aakar aapki skills (Data entry, editing, typing) dekhenge aur direct aapko order aur payment denge." },
-            2: { d: "Trending Globally (Log online shopping karne se pehle reviews padhte hain).", e: "₹25,000 - ₹60,000+ / mahina", w: "Aapke portal par Amazon/Flipkart ke products list honge, jab koi wahan se kharidega toh aapko automatic commission milega." },
-            3: { d: "Bohot Zyada (Online education aur skills sikhne ka market peak par hai).", e: "₹30,000 - ₹1,00,000+ / mahina", w: "Aap readymade courses ya apne khud ke video courses upload karenge. Log online payment karke course dekhenge." },
-            4: { d: "High (Digital assets ek baar banakar hazar baar becho, no delivery cost).", e: "₹20,000 - ₹40,000+ / mahina", w: "Website par digital products (Software, Templates, E-books) add honge. Payment aate hi product link auto-deliver ho jayega." },
-            5: { d: "Bohot Achi (Bina khud skill sikhe dusron se kaam karwakar profit kamana).", e: "₹30,000 - ₹70,000+ / mahina", w: "Aap foreign clients se mahnge me order lenge aur Fiverr/Upwork se saste me karwa ke apna bada margin rakhenge." },
-            6: { d: "Very High (Har local dukan/brand ko aajkal Instagram presence chahiye).", e: "₹40,000 - ₹80,000+ / mahina", w: "Apni premium agency site ke through businesses ko approach karein aur unka social media manage karne ki service dein." },
-            7: { d: "Evergreen (Search engine traffic se passive aur life-time kamai).", e: "₹15,000 - ₹50,000+ / mahina", w: "Apne blog par articles publish karein. Traffic aane par Google AdSense aur sponsor ads ke through regular income kamayein." },
-            8: { d: "Trending (Custom aur funny T-shirts youth ko sabko pasand aati hain).", e: "₹20,000 - ₹60,000+ / mahina", w: "Aap bas design lagayenge, jab order aayega toh supplier khud print karke bhejega. Aapko bas apna profit margin rakhna hai." },
-            9: { d: "High (Zero inventory model - bina saman kharide becho).", e: "₹20,000 - ₹40,000+ / mahina", w: "Meesho/Glowroad ke saste products apni premium website par branded banakar mahnge me bechein." },
-            10: { d: "Bohot High (Har YouTuber, Reels creator aur brand ko daily editor chahiye).", e: "₹30,000 - ₹90,000+ / mahina", w: "Professional video editing agency portal setup hoga. Aap order aur footage lekar video edit karke deliver karenge." },
-            11: { d: "Achi Demand (Logos, YouTube thumbnails aur social media banners ke liye).", e: "₹15,000 - ₹35,000+ / mahina", w: "Canva use karke sundar graphics banayein aur apni 3D portfolio website ke through premium prices me services bechein." },
-            12: { d: "High (Busy founders aur business owners apna time bachana chahte hain).", e: "₹20,000 - ₹40,000+ / mahina", w: "Online assistant ban kar unke emails manage karna ya appointments book karna. Hum iska professional booking portal banayenge." },
-            13: { d: "Trending Globally (Poori duniya me ek hi kamre se saman bechne ka business).", e: "₹40,000 - ₹1,00,000+ / mahina", w: "Trending products apni site par lagayein, order aane par supplier direct customer ko ship kar dega. Aap margin rakhenge." },
-            14: { d: "Achi Demand (Log naye skills padhna aur self-improvement pasand karte hain).", e: "₹15,000 - ₹30,000+ / mahina", w: "100+ readymade PLR Ebooks aapki site par dalenge. Ek baar setup ke baad auto sales aur instant email delivery hoti rahegi." },
-            15: { d: "Bohot Zyada (Instagram boom par hai, brands ko shoutout chahiye).", e: "₹20,000 - ₹50,000+ / mahina", w: "Motivation/Fact ya AI themes ke Insta page chalayein aur website ke through brand promotions aur shoutouts book karein." },
-            16: { d: "Evergreen (Har student ko ghar baithe achi tuitions chahiye).", e: "₹25,000 - ₹60,000+ / mahina", w: "Ghar baithe bacchon ko padhane ke liye aapki khud ki Zoom/Meet integrated class booking aur payment website hum banayenge." },
-            17: { d: "High (Har Local business marketing ke liye WhatsApp use karna chahta hai).", e: "₹20,000 - ₹50,000+ / mahina", w: "Local dukaandaro aur institutes ko Bulk WhatsApp message aur automation ki service dekar charge karein." },
-            18: { d: "Bohot High (Real estate, Insurance aadi ko daily naye customer chahiye).", e: "₹50,000 - ₹1,00,000+ / mahina", w: "Unke liye premium landing page se customers ki details (leads) collect karein aur unhe leads bech kar paise kamayein." },
-            19: { d: "High (Job seekers daily badh rahe hain aur unhe ATS friendly CV chahiye).", e: "₹15,000 - ₹35,000+ / mahina", w: "Modern resume templates use karke logo ko professional CV banakar dein. Premium portal se direct upload and payment lein." },
-            20: { d: "Top Trending (Aane wala time AI ka hai).", e: "₹30,000 - ₹80,000+ / mahina", w: "Website par daily naye AI tools list karein. Log visit karke AI tool kharidenge, aapko har sale par dollar mein affiliate commission milega." }
+            1: { d: "Bohot High (Har badi company aur startup ko remote workers aur freelancers chahiye).", e: "₹20,000 - ₹50,000+ / mahina", w: "Aapki website par log aakar aapki skills dekhenge aur direct order/payment denge." },
+            2: { d: "Trending Globally (Log online shopping karne se pehle reviews padhte hain).", e: "₹25,000 - ₹60,000+ / mahina", w: "Aapke portal par Amazon/Flipkart ke products list honge, kharidari par commission milega." },
+            3: { d: "Bohot Zyada (Online education aur skills sikhne ka market peak par hai).", e: "₹30,000 - ₹1,00,000+ / mahina", w: "Readymade courses ya video courses upload karenge. Log payment karke course dekhenge." },
+            4: { d: "High (Digital assets ek baar banakar hazar baar becho, no delivery cost).", e: "₹20,000 - ₹40,000+ / mahina", w: "Software, Templates add honge. Payment aate hi product link auto-deliver ho jayega." },
+            5: { d: "Bohot Achi (Bina khud skill sikhe dusron se kaam karwakar profit kamana).", e: "₹30,000 - ₹70,000+ / mahina", w: "Foreign clients se order lenge aur saste me karwa ke apna bada margin rakhenge." },
+            6: { d: "Very High (Har local dukan/brand ko aajkal Instagram presence chahiye).", e: "₹40,000 - ₹80,000+ / mahina", w: "Premium agency site ke through businesses ka social media manage karne ki service dein." },
+            7: { d: "Evergreen (Search engine traffic se passive aur life-time kamai).", e: "₹15,000 - ₹50,000+ / mahina", w: "Blog par articles publish karein. Traffic aane par Google AdSense se regular income kamayein." },
+            8: { d: "Trending (Custom aur funny T-shirts youth ko sabko pasand aati hain).", e: "₹20,000 - ₹60,000+ / mahina", w: "Aap design lagayenge, order aane par supplier khud print karke bhejega." },
+            9: { d: "High (Zero inventory model - bina saman kharide becho).", e: "₹20,000 - ₹40,000+ / mahina", w: "Meesho/Glowroad ke saste products apni premium website par branded banakar bechein." },
+            10: { d: "Bohot High (Har YouTuber, Reels creator ko daily editor chahiye).", e: "₹30,000 - ₹90,000+ / mahina", w: "Professional agency portal. Aap order aur footage lekar video edit karke deliver karenge." },
+            11: { d: "Achi Demand (Logos, YouTube thumbnails aur social media banners ke liye).", e: "₹15,000 - ₹35,000+ / mahina", w: "Canva use karke graphics banayein aur premium prices me services bechein." },
+            12: { d: "High (Busy founders aur business owners apna time bachana chahte hain).", e: "₹20,000 - ₹40,000+ / mahina", w: "Online assistant ban kar emails manage karna ya appointments book karna." },
+            13: { d: "Trending Globally (Poori duniya me ek hi kamre se saman bechne ka business).", e: "₹40,000 - ₹1,00,000+ / mahina", w: "Trending products site par lagayein, supplier direct customer ko ship karega." },
+            14: { d: "Achi Demand (Log naye skills padhna aur self-improvement pasand karte hain).", e: "₹15,000 - ₹30,000+ / mahina", w: "100+ PLR Ebooks site par hongi. Auto sales aur instant email delivery." },
+            15: { d: "Bohot Zyada (Instagram boom par hai, brands ko shoutout chahiye).", e: "₹20,000 - ₹50,000+ / mahina", w: "Theme pages chalayein aur website ke through brand promotions book karein." },
+            16: { d: "Evergreen (Har student ko ghar baithe achi tuitions chahiye).", e: "₹25,000 - ₹60,000+ / mahina", w: "Zoom/Meet integrated class booking aur payment website par padhayein." },
+            17: { d: "High (Har Local business marketing ke liye WhatsApp use karna chahta hai).", e: "₹20,000 - ₹50,000+ / mahina", w: "Local dukaandaro ko Bulk WhatsApp message aur automation ki service dein." },
+            18: { d: "Bohot High (Real estate, Insurance aadi ko daily naye customer chahiye).", e: "₹50,000 - ₹1,00,000+ / mahina", w: "Landing page se customers ki leads collect karein aur unhe bech kar paise kamayein." },
+            19: { d: "High (Job seekers daily badh rahe hain aur unhe ATS friendly CV chahiye).", e: "₹15,000 - ₹35,000+ / mahina", w: "Modern resume templates se professional CV banakar dein aur online payment lein." },
+            20: { d: "Top Trending (Aane wala time AI ka hai).", e: "₹30,000 - ₹80,000+ / mahina", w: "Daily naye AI tools list karein. Har sale par dollar mein affiliate commission milega." }
         };
 
-        // 2. Real Demo Links Data (10 real websites per category)
         const realDemoLinks = {
-            1: ["upwork.com", "fiverr.com", "freelancer.com", "toptal.com", "guru.com", "peopleperhour.com", "truelancer.com", "workana.com", "simplyhired.com", "flexjobs.com"],
-            2: ["wirecutter.com", "nerdwallet.com", "rtings.com", "smartpassiveincome.com", "pcmag.com", "techradar.com", "coupondunia.in", "cashkaro.com", "nichepursuits.com", "affiliatebay.net"],
-            3: ["udemy.com", "coursera.org", "skillshare.com", "teachable.com", "thinkific.com", "kajabi.com", "unacademy.com", "podia.com", "learndash.com", "masterclass.com"],
-            4: ["gumroad.com", "envato.com", "themeforest.net", "creativemarket.com", "etsy.com", "appsumo.com", "templatemonster.com", "freepik.com", "ui8.net", "digitalstore.com"],
-            5: ["dropservicinghq.com", "seoclerks.com", "spp.co", "contentsnare.com", "designjoy.co", "videohusky.com", "wpbuffs.com", "manypixels.co", "fiverr.com/agency", "servicearbitrage.co"],
-            6: ["vaynermedia.com", "ignitevisibility.com", "socialchain.com", "lyfemarketing.com", "socialbeat.in", "webfx.com", "thriveagency.com", "socialize.com", "sculpt.com", "viralnation.com"],
-            7: ["shoutmeloud.com", "techcrunch.com", "mashable.com", "theverge.com", "engadget.com", "gizmodo.com", "lifehacker.com", "copyblogger.com", "problogger.com", "huffpost.com"],
-            8: ["printify.com", "printful.com", "redbubble.com", "teespring.com", "zazzle.com", "society6.com", "spreadshirt.com", "merch.amazon.com", "customink.com", "teepublic.com"],
-            9: ["meesho.com", "glowroad.com", "shop101.com", "shopsy.in", "ebay.com", "poshmark.com", "mercari.com", "depop.com", "thredup.com", "offerup.com"],
-            10: ["vidchops.com", "videohusky.com", "flocksy.com", "tastyedits.com", "cutyeti.com", "becreatives.co", "editcrew.com", "videojedi.com", "motionedits.com", "veed.io/agency"],
-            11: ["designjoy.co", "penji.co", "manypixels.co", "kimp.io", "designpickle.com", "flocksy.com", "superside.com", "reelunlimited.com", "dotyeti.com", "kapa99.com"],
-            12: ["timeetc.com", "belay.com", "fancyhands.com", "zirtual.com", "woodbows.com", "uassistme.com", "virtualstafffinder.com", "taskrabbit.com", "upwork.com/hire/va", "remoteco.com"],
-            13: ["wayfair.com", "aliexpress.com", "spocket.co", "inspireuplift.com", "meowingtons.com", "bluecrate.com", "dudeiwantthat.com", "trendygoods.com", "shopbase.com", "hypetrend.co"],
-            14: ["amazon.com/kindle", "kobo.com", "smashwords.com", "draft2digital.com", "blurb.com", "payhip.com", "leanpub.com", "lulu.com", "ebookstore.com", "gumroad.com/books"],
-            15: ["instagram.com/wealth", "instagram.com/fact", "instagram.com/millionaire_mentor", "instagram.com/earth", "instagram.com/business", "instagram.com/travel", "instagram.com/success", "instagram.com/quotes", "instagram.com/health", "instagram.com/technology"],
-            16: ["vipkid.com", "cambly.com", "chegg.com/tutors", "preply.com", "tutorme.com", "skooli.com", "wyzant.com", "varsitytutors.com", "vedantu.com", "tutordotcom.com"],
-            17: ["wati.io", "interakt.shop", "twilio.com", "messagebird.com", "gupshup.io", "aisensy.com", "zoko.io", "trengo.com", "respond.io", "brevo.com"],
-            18: ["thumbtack.com", "bark.com", "homeadvisor.com", "angi.com", "upcity.com", "clutch.co", "leadsquared.com", "justdial.com", "sulekha.com", "indiamart.com"],
-            19: ["topresume.com", "resumewriters.com", "zipjob.com", "resumetarget.com", "resumespice.com", "zety.com", "novoresume.com", "canva.com/resumes", "visualcv.com", "leteatgo.com"],
-            20: ["futurepedia.io", "thereisanaiforthat.com", "aivalley.ai", "topai.tools", "toolify.ai", "aicyclopedia.com", "futuretools.io", "easywithai.com", "aifind.co", "saasgenius.com"]
+            1: ["upwork.com", "fiverr.com", "freelancer.com", "toptal.com"],
+            2: ["wirecutter.com", "nerdwallet.com", "rtings.com", "cashkaro.com"],
+            3: ["udemy.com", "coursera.org", "skillshare.com", "teachable.com"],
+            4: ["gumroad.com", "envato.com", "themeforest.net", "etsy.com"],
+            5: ["dropservicinghq.com", "spp.co", "designjoy.co", "wpbuffs.com"],
+            6: ["vaynermedia.com", "ignitevisibility.com", "socialchain.com", "webfx.com"],
+            7: ["shoutmeloud.com", "techcrunch.com", "mashable.com", "theverge.com"],
+            8: ["printify.com", "printful.com", "redbubble.com", "teespring.com"],
+            9: ["meesho.com", "glowroad.com", "shopsy.in", "poshmark.com"],
+            10: ["vidchops.com", "videohusky.com", "becreatives.co", "veed.io/agency"],
+            11: ["designjoy.co", "penji.co", "superside.com", "dotyeti.com"],
+            12: ["timeetc.com", "belay.com", "zirtual.com", "taskrabbit.com"],
+            13: ["wayfair.com", "spocket.co", "inspireuplift.com", "shopbase.com"],
+            14: ["amazon.com/kindle", "smashwords.com", "payhip.com", "gumroad.com/books"],
+            15: ["instagram.com/wealth", "instagram.com/business", "instagram.com/quotes"],
+            16: ["vipkid.com", "cambly.com", "preply.com", "vedantu.com"],
+            17: ["wati.io", "interakt.shop", "aisensy.com", "brevo.com"],
+            18: ["thumbtack.com", "homeadvisor.com", "justdial.com", "indiamart.com"],
+            19: ["topresume.com", "zety.com", "novoresume.com", "visualcv.com"],
+            20: ["futurepedia.io", "thereisanaiforthat.com", "toolify.ai", "easywithai.com"]
         };
 
         function openModal(type, id, title, keyword = '') {
@@ -944,41 +1005,36 @@
                 titleEl.innerHTML = `<i class="fas fa-info-circle mr-2 text-blue-300"></i> ${title}`;
                 bodyEl.innerHTML = `
                     <div class="space-y-4 text-gray-700">
-                        <!-- Demand & Earning -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm">
-                                <p class="font-bold text-blue-900 mb-1"><i class="fas fa-chart-line mr-2 text-blue-600"></i> Market Demand:</p>
-                                <p class="text-sm font-medium leading-relaxed">${data.d}</p>
+                            <div class="bg-blue-50 p-4 rounded-xl border border-blue-200 shadow-sm relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 w-16 h-16 bg-blue-200 rounded-full -mr-8 -mt-8 opacity-50 group-hover:scale-150 transition-transform"></div>
+                                <p class="font-bold text-blue-900 mb-1 relative z-10"><i class="fas fa-chart-line mr-2 text-blue-600"></i> Market Demand:</p>
+                                <p class="text-sm font-medium leading-relaxed relative z-10">${data.d}</p>
                             </div>
-                            <div class="bg-green-50 p-4 rounded-xl border border-green-200 shadow-sm">
-                                <p class="font-bold text-green-900 mb-1"><i class="fas fa-rupee-sign mr-2 text-green-600"></i> Kitna Kama Sakte Ho:</p>
-                                <p class="text-sm font-medium leading-relaxed">${data.e}</p>
+                            <div class="bg-green-50 p-4 rounded-xl border border-green-200 shadow-sm relative overflow-hidden group">
+                                <div class="absolute top-0 right-0 w-16 h-16 bg-green-200 rounded-full -mr-8 -mt-8 opacity-50 group-hover:scale-150 transition-transform"></div>
+                                <p class="font-bold text-green-900 mb-1 relative z-10"><i class="fas fa-rupee-sign mr-2 text-green-600"></i> Kitna Kama Sakte Ho:</p>
+                                <p class="text-sm font-medium leading-relaxed relative z-10">${data.e}</p>
                             </div>
                         </div>
 
-                        <!-- How it works -->
-                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 shadow-sm">
-                            <p class="font-bold text-purple-900 mb-1"><i class="fas fa-cogs mr-2 text-purple-600"></i> Kaise Kaam Karta Hai:</p>
-                            <p class="text-sm font-medium leading-relaxed">${data.w}</p>
+                        <div class="bg-purple-50 p-4 rounded-xl border border-purple-200 shadow-sm relative overflow-hidden group">
+                            <div class="absolute top-0 right-0 w-20 h-20 bg-purple-200 rounded-full -mr-10 -mt-10 opacity-50 group-hover:scale-150 transition-transform"></div>
+                            <p class="font-bold text-purple-900 mb-1 relative z-10"><i class="fas fa-cogs mr-2 text-purple-600"></i> Kaise Kaam Karta Hai:</p>
+                            <p class="text-sm font-medium leading-relaxed relative z-10">${data.w}</p>
                         </div>
                         
-                        <!-- NEW SERVICES BOX (Complete Setup Info) -->
-                        <div class="mt-6 p-6 md:p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white rounded-2xl shadow-xl text-left border-2 border-yellow-500/50 relative overflow-hidden">
-                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+                        <div class="mt-6 p-6 md:p-8 bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white rounded-2xl shadow-xl text-left border border-gray-700 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-20"></div>
                             
                             <h4 class="text-xl md:text-2xl font-black text-yellow-400 mb-4 relative z-10 text-center uppercase tracking-wide">
-                                <i class="fas fa-rocket mr-2"></i> Hum Aapko Kya Provide Karenge?
+                                <i class="fas fa-rocket mr-2"></i> Complete Package Details
                             </h4>
                             
-                            <p class="text-sm text-gray-300 font-medium mb-4 relative z-10 text-center">
-                                Hamari team aapko complete setup provide karegi, taaki aap apna focus sirf kamai par rakh sakein:
-                            </p>
-
                             <ul class="space-y-3 relative z-10 text-sm md:text-base font-semibold text-gray-200 mb-6 bg-white/5 p-4 rounded-xl border border-white/10">
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span>Premium <b>Website Banakar Denge</b> (Domain & Hosting ke sath).</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span>Premium <b>Website Banakar Denge</b> (Domain & Hosting).</span></li>
                                 <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span>Business ke <b>Social Media Accounts</b> banakar denge.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span><b>Social Media Marketing</b> karke setup tayar karenge.</span></li>
-                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span>Customer aur <b>Lead Kaise Lena Hai</b> iski complete guide aur training.</span></li>
+                                <li class="flex items-start gap-3"><i class="fas fa-check-circle text-green-400 mt-1 text-lg"></i> <span>Customer aur <b>Lead Kaise Lena Hai</b> iski complete guide.</span></li>
                             </ul>
 
                             <div class="text-center relative z-10">
@@ -993,34 +1049,33 @@
             } else if (type === 'demo') {
                 titleEl.innerHTML = `<i class="fas fa-desktop mr-2 text-pink-300"></i> ${title} - Demo Websites`;
                 
-                // Get real demo URLs for this specific category
-                const demoUrls = realDemoLinks[id] || getFallbackLinks(keyword);
+                const demoUrls = realDemoLinks[id] || getFallbackLinks(title);
                 let linksHTML = '';
                 
                 demoUrls.forEach((domain, index) => {
-                    // Adding https:// for external links so it opens properly
                     let fullUrl = domain.startsWith('http') ? domain : `https://${domain}`;
                     linksHTML += `
-                        <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-3.5 bg-white hover:bg-pink-50 border border-gray-200 hover:border-pink-300 rounded-xl transition-all group shadow-sm hover:shadow-md mb-2.5">
-                            <span class="text-sm font-bold text-gray-700 group-hover:text-pink-700 flex items-center">
-                                <div class="w-8 h-8 rounded-full bg-gray-100 group-hover:bg-pink-100 flex items-center justify-center mr-3 text-xs text-gray-500 group-hover:text-pink-600 font-black">
+                        <a href="${fullUrl}" target="_blank" rel="noopener noreferrer" class="flex items-center justify-between p-4 bg-white hover:bg-gradient-to-r hover:from-pink-50 hover:to-white border border-gray-200 hover:border-pink-300 rounded-xl transition-all group shadow-sm hover:shadow-md mb-3">
+                            <span class="text-sm md:text-base font-bold text-gray-700 group-hover:text-pink-700 flex items-center">
+                                <div class="w-10 h-10 rounded-full bg-gray-100 group-hover:bg-pink-100 flex items-center justify-center mr-4 text-sm text-gray-500 group-hover:text-pink-600 font-black transition-colors">
                                     ${index + 1}
                                 </div>
                                 ${domain.replace('https://', '').replace('www.', '')}
                             </span>
-                            <span class="text-xs font-bold bg-gray-100 text-gray-600 px-4 py-2 rounded-full group-hover:bg-pink-600 group-hover:text-white transition flex items-center gap-1">
-                                Dekhein <i class="fas fa-external-link-alt text-[10px]"></i>
+                            <span class="text-xs font-bold bg-gray-100 text-gray-600 px-5 py-2.5 rounded-full group-hover:bg-pink-600 group-hover:text-white transition-all flex items-center gap-2 transform group-hover:scale-105">
+                                Dekhein <i class="fas fa-external-link-alt"></i>
                             </span>
                         </a>
                     `;
                 });
 
                 bodyEl.innerHTML = `
-                    <div class="mb-5 bg-blue-50 border border-blue-200 p-4 rounded-xl text-center shadow-inner">
-                        <p class="text-blue-900 text-[15px] font-black"><i class="fas fa-search mr-2"></i> Real Market Examples</p>
-                        <p class="text-sm text-blue-700 mt-1 font-medium">Niche 10 real websites ke link hain jo yeh business kar rahi hain. Click karke dekhein aur wapas aakar apna setup book karein.</p>
+                    <div class="mb-6 bg-blue-50 border border-blue-200 p-5 rounded-xl text-center shadow-inner relative overflow-hidden">
+                        <div class="absolute -right-4 -top-4 text-blue-200 opacity-50"><i class="fas fa-search text-6xl"></i></div>
+                        <p class="text-blue-900 text-lg font-black relative z-10"><i class="fas fa-chart-line mr-2"></i> Real Market Examples</p>
+                        <p class="text-sm text-blue-700 mt-2 font-medium relative z-10">Niche real websites ke link hain jo yeh business successfully kar rahi hain. Inhe dekh kar apna idea clear karein.</p>
                     </div>
-                    <div class="space-y-1 max-h-[50vh] overflow-y-auto pr-2 pb-2 custom-scrollbar">
+                    <div class="space-y-1 max-h-[50vh] overflow-y-auto pr-3 pb-2 custom-scrollbar">
                         ${linksHTML}
                     </div>
                 `;
